@@ -12,10 +12,17 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let defaults = UserDefaults.standard
+        
+        //测试用的
+        defaults.set(98, forKey: "heart")
+        defaults.set(7654, forKey: "step")
+        defaults.set(10, forKey: "sleep")
+        
         return true
     }
 

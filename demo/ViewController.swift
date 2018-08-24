@@ -9,10 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.barStyle = .blackOpaque
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
+        let image = UIImage(named: "主界面全背景")
+        let patternColor = UIColor.init(patternImage:image!)
+        self.view.backgroundColor = patternColor
     }
 
     override func didReceiveMemoryWarning() {

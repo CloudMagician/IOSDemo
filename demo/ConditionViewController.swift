@@ -10,9 +10,33 @@ import UIKit
 
 class ConditionViewController: UIViewController {
 
+    @IBOutlet weak var text: UILabel!
+    
+    @IBOutlet weak var image: UIImageView!
+    
+    private var healthscore = HealthScore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let defaults = UserDefaults.standard
+
+        let score = healthscore.Calculation(defaults.integer(forKey: "heart"),
+                                            defaults.integer(forKey: "step"),
+                                            defaults.integer(forKey: "sleep"))
+        
+        switch score {
+        case 0:
+            text.text = "0"
+            image.image = UIImage(named:"主界面背景")
+        case 1:
+            text.text = "1"
+            image.image = UIImage(named:"主界面完整")
+        default:
+            text.text = "2"
+            image.image = UIImage(named:"主界面全背景")
+        }
+        
         // Do any additional setup after loading the view.
     }
 

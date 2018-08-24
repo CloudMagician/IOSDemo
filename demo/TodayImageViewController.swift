@@ -9,9 +9,20 @@
 import UIKit
 
 class TodayImageViewController: UIViewController {
-
+    
+    @IBOutlet weak var heartLabel: UILabel!
+    
+    @IBOutlet weak var stepLabel: UILabel!
+    
+    @IBOutlet weak var sleepLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let defaults = UserDefaults.standard
+        heartLabel.text = heartLabel.text! + String(defaults.integer(forKey: "heart"))
+        stepLabel.text = stepLabel.text! + String(defaults.integer(forKey: "step"))
+        sleepLabel.text = sleepLabel.text! + String(defaults.integer(forKey: "sleep"))
 
         // Do any additional setup after loading the view.
     }
